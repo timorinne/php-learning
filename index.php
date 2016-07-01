@@ -6,10 +6,16 @@
  * and open the template in the editor.
  */
 echo 'Testing my first PHP page!!!<br>';
-
+echo '<br>';
+echo '<br>';
 echo "Just added some more text...<br>";
+echo '<br>';
 echo "...and more text...<br>";
-
+echo '<br>';
+echo '<br>';
+echo "again some more text...<br>";
+echo '<br>';
+echo '<br>';
 $numbers = array(345,397,676,385,2657,5784);
     
 foreach($numbers as $number){
