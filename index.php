@@ -7,6 +7,8 @@
  */
 echo 'Testing my first PHP page!!!<br>';
 
+echo "Just added some more text..."
+
 $numbers = array(345,397,676,385,2657,5784);
     
 foreach($numbers as $number){
