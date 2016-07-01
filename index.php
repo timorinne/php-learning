@@ -7,8 +7,8 @@
  */
 echo 'Testing my first PHP page!!!<br>';
 
-echo "Just added some more text...";
-echo "...and more text...";
+echo "Just added some more text...<br>";
+echo "...and more text...<br>";
 
 $numbers = array(345,397,676,385,2657,5784);
     
