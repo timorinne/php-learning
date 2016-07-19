@@ -28,15 +28,15 @@ try {
     $rowCount = count($results);  
     echo "Rows found: " . $rowCount;  
     
-    if($rowCount > 0) {  
-        
-        
-        foreach( $results as $row ) {  
-            echo "row: " . $row;  . "<br>";  
-        }  
-    } else {
-        echo "No rows found!";
-    }
+//    if($rowCount > 0) {  
+//        
+//        
+//        foreach( $results as $row ) {  
+//            echo "row: " . $row;  . "<br>";  
+//        }  
+//    } else {
+//        echo "No rows found!";
+//    }
     
 
 #foreach($conn->query('') as $row) {
