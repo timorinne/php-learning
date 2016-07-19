@@ -19,9 +19,29 @@ try {
     $conn = new PDO ('sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db', 'tri', 'OhNoo8yu');
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     
-    foreach($conn->query('SELECT * FROM "tri-php-study_db".phptest.config;') as $row) {
-        echo $row . "<br>";
+    
+    $sql = "SELECT * FROM tri-php-study_db.phptest.config;";
+    
+    $results = $conn->prepare($sql);  
+    $results->execute();  
+    $results = $results->fetchAll(PDO::FETCH_ASSOC);  
+    $rowCount = count($results);  
+
+    if($rowCount > 0) {  
+        echo "Rows found: " . $rowCount;  
+        
+        foreach( $results as $row ) {  
+            echo "row: " . $row . "<br>";  
+        }  
+    } else {
+        echo "No rows found!";
     }
+    
+
+#foreach($conn->query('') as $row) {
+    #}
+    #    echo $row . "<br>";
+    #}
     
     #echo "<br>";
     #echo "<br>";
