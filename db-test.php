@@ -19,7 +19,7 @@ try {
     $conn = new PDO ('sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db', 'tri', 'OhNoo8yu');
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     
-    
+    dump_var($conn);
     #if($conn->isConnected()) {    
     #    echo "Connected!<br>";
     #} else {
