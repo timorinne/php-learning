@@ -22,9 +22,9 @@ try {
     
     $sql = "SELECT * FROM tri-php-study_db.phptest.config;";
 
-    foreach ($conn->query($sql) as $row) {
-        print_r($row);
-    } 
+    #foreach ($conn->query($sql) as $row) {
+    #    print_r($row);
+    #} 
     
 //    $results = $conn->prepare($sql);  
 //    $results->execute();  
