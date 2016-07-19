@@ -23,6 +23,8 @@ try {
     #    echo $row . "<br>";
     #}
     
+    $sql = "SELECT * FROM "tri-php-study_db".phptest.config;";
+    
     echo "Rows:";
     foreach ($conn->query($sql) as $row) {
         print_r($row);
