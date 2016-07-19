@@ -19,19 +19,19 @@ try {
     $conn = new PDO ('sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db', 'tri', 'OhNoo8yu');
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     
-    foreach($dbh->query('SELECT * FROM "tri-php-study_db".phptest.config;') as $row) {
+    foreach($conn->query('SELECT * FROM "tri-php-study_db".phptest.config;') as $row) {
         echo $row . "<br>";
     }
     
-    echo "<br>";
-    echo "<br>";
-    echo "var_dump($GLOBALS);<br>";
-    var_dump($conn);
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
+    #echo "<br>";
+    #echo "<br>";
+    #echo "var_dump($GLOBALS);<br>";
+    #var_dump($conn);
+    #echo "<br>";
+    #echo "<br>";
+    #echo "<br>";
     
-    $conn = null;
+    #$conn = null;
 
     #if($conn->isConnected()) {    
     #    echo "Connected!<br>";
