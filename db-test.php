@@ -28,7 +28,7 @@ try {
     echo "Rows:";
     
     foreach ($conn->query($sql) as $row) {
-        echo "row: " . $row . "<br>";
+        print_r($row);
     } 
     
     #echo "<br>";
