@@ -31,7 +31,7 @@ try {
         echo "Rows found: " . $rowCount;  
         
         foreach( $results as $row ) {  
-            echo "row: " . $row . "<br>";  
+            echo "row: " . $row[0] . "<br>";  
         }  
     } else {
         echo "No rows found!";
