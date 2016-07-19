@@ -7,12 +7,11 @@
  */
 
 echo "Hello everybody!<br><br><br>";
-echo "Now we are try to connect to Azure SQL database[tri-php-study_db] on SQL Server[tri-azure-sqlserver.database.windows.net]...<br>";
+echo "Now we try to connect to Azure SQL database[tri-php-study_db] on SQL Server[tri-azure-sqlserver.database.windows.net]...<br>";
 
 # 
 # Server: tri-azure-sqlserver.database.windows.net,1433 
-# SQL Database: tri-php-study_db\r\nUser 
-# Name: tri\r\n\r\nPHP Data Objects(PDO) 
+# SQL Database: tri-php-study_db
 # 
 # Sample Code:
 # 
@@ -21,16 +20,20 @@ try {
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     
     
-    if($conn->isConnected()) {    
-        echo "Connected!<br>";
-    } else {
-        echo "Error, could not connect!<br>";
-    }
-} 
-catch ( PDOException $e ) {   
-   echo( "Error connecting to SQL Server.<br>" );
-   die(print_r($e));
+    #if($conn->isConnected()) {    
+    #    echo "Connected!<br>";
+    #} else {
+    #    echo "Error, could not connect!<br>";
+    #}
+
+} catch (PDOException $e) {
+    echo "Error!: " . $e->getMessage() . "<br/>";
+    die();
 }
+#catch ( PDOException $e ) {   
+#   echo( "Error connecting to SQL Server.<br>" );
+#   die(print_r($e));
+#}
 
 
 echo "OK!";
