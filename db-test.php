@@ -6,8 +6,8 @@
  * and open the template in the editor.
  */
 
-echo "Hello everybody!";
-echo "Now we are try to connect to Azure SQL database[tri-php-study_db] on SQL Server[tri-azure-sqlserver.database.windows.net]";
+echo "Hello everybody!<br><br><br>";
+echo "Now we are try to connect to Azure SQL database[tri-php-study_db] on SQL Server[tri-azure-sqlserver.database.windows.net]...<br>";
 
 # 
 # Server: tri-azure-sqlserver.database.windows.net,1433 
@@ -23,6 +23,12 @@ try {
 catch ( PDOException $e ) {   
    print( "Error connecting to SQL Server." );
    die(print_r($e));
+}
+
+if($conn->isConnected()) {    
+    echo "Connected!<br>";
+} else {
+    echo "Error, could not connect!<br>";
 }
 
 echo "OK!";
