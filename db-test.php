@@ -26,12 +26,13 @@ try {
     $results->execute();  
     $results = $results->fetchAll(PDO::FETCH_ASSOC);  
     $rowCount = count($results);  
-
+    echo "Rows found: " . $rowCount;  
+    
     if($rowCount > 0) {  
-        echo "Rows found: " . $rowCount;  
+        
         
         foreach( $results as $row ) {  
-            echo "row: " . $row[0] . "<br>";  
+            echo "row: " . $row;  . "<br>";  
         }  
     } else {
         echo "No rows found!";
