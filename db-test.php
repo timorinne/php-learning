@@ -19,17 +19,19 @@ echo "Now we are try to connect to Azure SQL database[tri-php-study_db] on SQL S
 try {
     $conn = new PDO ('sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db', 'tri', 'OhNoo8yu');
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    
+    
+    if($conn->isConnected()) {    
+        echo "Connected!<br>";
+    } else {
+        echo "Error, could not connect!<br>";
+    }
 } 
 catch ( PDOException $e ) {   
    print( "Error connecting to SQL Server." );
    die(print_r($e));
 }
 
-if($conn->isConnected()) {    
-    echo "Connected!<br>";
-} else {
-    echo "Error, could not connect!<br>";
-}
 
 echo "OK!";
 
