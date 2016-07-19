@@ -23,7 +23,7 @@ try {
     #    echo $row . "<br>";
     #}
     
-    $sql = "SELECT * FROM tri-php-study_db.phptest.config;";
+    $sql = "SELECT * FROM phptest.config;";
     
     echo "Rows:";
     
