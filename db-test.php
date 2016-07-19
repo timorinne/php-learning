@@ -19,9 +19,13 @@ try {
     $conn = new PDO ('sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db', 'tri', 'OhNoo8yu');
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     
-    foreach($conn->query('SELECT * FROM "tri-php-study_db".phptest.config;') as $row) {
-        echo $row . "<br>";
-    }
+    #foreach($conn->query('SELECT * FROM "tri-php-study_db".phptest.config;') as $row) {
+    #    echo $row . "<br>";
+    #}
+    
+    foreach ($conn->query($sql) as $row) {
+        print_r($row);
+    } 
     
     #echo "<br>";
     #echo "<br>";
