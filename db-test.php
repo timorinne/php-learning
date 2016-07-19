@@ -27,7 +27,7 @@ try {
     
     echo "Rows:";
     foreach ($conn->query($sql) as $row) {
-        print_r($row);
+        #print_r($row);
     } 
     
     #echo "<br>";
