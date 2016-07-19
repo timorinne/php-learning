@@ -28,7 +28,7 @@ try {
     }
 } 
 catch ( PDOException $e ) {   
-   print( "Error connecting to SQL Server." );
+   echo( "Error connecting to SQL Server.<br>" );
    die(print_r($e));
 }
 
