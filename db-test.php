@@ -25,11 +25,22 @@ try {
     
     $sql = "SELECT * FROM phptest.config;";
     
-    echo "Rows:";
+    echo "Rows: <br>";
     
-    foreach ($conn->query($sql) as $row) {
-        print_r($row);
+    if ($result = $conn->query($sql)) { 
+        while($obj = $result->fetch_object()){ 
+            $line.=$obj->id; 
+            $line.=$obj->name; 
+            $line.=$obj->host; 
+            
+            echo "Row: " . $line . "<br>";
+        } 
     } 
+    $result->close();
+    
+    #foreach ($conn->query($sql) as $row) {
+    #    print_r($row);
+    #} 
     
     
     #echo "<br>";
