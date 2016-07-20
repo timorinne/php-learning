@@ -18,22 +18,21 @@ try {
     $dns = 'sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db; LoginTimeout = 30; Encrypt = 1';
     echo "dns: " . $dns . "<br>";
     
-    # $conn = new PDO ('sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db', 'tri', 'OhNoo8yu');
-    #$conn = new PDO ('sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db; LoginTimeout = 30; Encrypt = 1', 'tri', 'OhNoo8yu');
+    
     $conn = new PDO ($dns, $user, $pass);
-    
-    
-    
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     
     $sql = "SELECT * FROM phptest.config;";
+    
+    echo "<br>";
     echo "sql: " . $sql . "<br>";
     
+    echo "<br>";
     echo "Rows: <br>";
     
     foreach ($conn->query($sql) as $row) {
         #print_r($row);
-        echo "row.id: " . $row['id'] . ", row.name: " . $row['name'] . ", row.value: " . $row['value'] . "<br>";
+        echo " * row.id: " . $row['id'] . ", row.name: " . $row['name'] . ", row.value: " . $row['value'] . "<br>";
     } 
 } catch (PDOException $e) {
     echo "Error!: " . $e->getMessage() . "<br/>";
