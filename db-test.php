@@ -27,20 +27,22 @@ try {
     
     echo "Rows: <br>";
     
-    if ($result = $conn->query($sql)) { 
-        while($obj = $result->fetch_object()){ 
-            $line.=$obj->id; 
-            $line.=$obj->name; 
-            $line.=$obj->host; 
-            
-            echo "Row: " . $line . "<br>";
-        } 
-    } 
-    $result->close();
+//    if ($result = $conn->query($sql)) { 
+//        while($obj = $result->fetch_object()){ 
+//            $line.=$obj->id; 
+//            $line.=$obj->name; 
+//            $line.=$obj->host; 
+//            
+//            echo "Row: " . $line . "<br>";
+//        } 
+//    } 
+//    $result->close();
     
-    #foreach ($conn->query($sql) as $row) {
-    #    print_r($row);
-    #} 
+    foreach ($conn->query($sql) as $row) {
+        #print_r($row);
+        
+        echo "row.id: " . $row['id'];
+    } 
     
     
     #echo "<br>";
