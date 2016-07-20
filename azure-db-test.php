@@ -13,12 +13,21 @@ echo "Now we are trying to connect to Azure SQL database[tri-php-study_db] on Az
 # Server: tri-azure-sqlserver.database.windows.net,1433 
 # SQL Database: tri-php-study_db
 try {
+    $user = "tri"; 
+    $pass = "OhNoo8yu";
+    $dns = 'sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db; LoginTimeout = 30; Encrypt = 1';
+    echo "dns: " . $dns . "<br>";
+    
     # $conn = new PDO ('sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db', 'tri', 'OhNoo8yu');
-    $conn = new PDO ('sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db; LoginTimeout = 30; Encrypt = 1', 'tri', 'OhNoo8yu');
+    #$conn = new PDO ('sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db; LoginTimeout = 30; Encrypt = 1', 'tri', 'OhNoo8yu');
+    $conn = new PDO ($dns, $user, $pass);
+    
+    
     
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     
     $sql = "SELECT * FROM phptest.config;";
+    echo "sql: " . $sql . "<br>";
     
     echo "Rows: <br>";
     
