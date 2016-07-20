@@ -41,7 +41,7 @@ try {
     foreach ($conn->query($sql) as $row) {
         #print_r($row);
         
-        echo "row.id: " . $row['id'] . "<br>";
+        echo "row.id: " . $row['id'] . ", row.name: " . $row['name'] . ", row.value: " . $row['value'] . "<br>";
     } 
     
     
