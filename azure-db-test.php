@@ -12,9 +12,6 @@ echo "Now we are trying to connect to Azure SQL database[tri-php-study_db] on Az
 # 
 # Server: tri-azure-sqlserver.database.windows.net,1433 
 # SQL Database: tri-php-study_db
-# 
-# Sample Code:
-# 
 try {
     $conn = new PDO ('sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db', 'tri', 'OhNoo8yu');
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -25,7 +22,6 @@ try {
     
     foreach ($conn->query($sql) as $row) {
         #print_r($row);
-        
         echo "row.id: " . $row['id'] . ", row.name: " . $row['name'] . ", row.value: " . $row['value'] . "<br>";
     } 
 } catch (PDOException $e) {
