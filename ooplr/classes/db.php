@@ -79,7 +79,9 @@ class DB {
         echo "db.insert()<br>";
         
         $keys = array_keys($fields);
+        $values2 = array_values($fields);
         $values = null;
+        $values2 = null;
         $x = 1;
 
         foreach($fields as $field) {
@@ -91,7 +93,9 @@ class DB {
         }
 
         $sql = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
-        echo "  * SQL: " . $sql . "<br><br>";
+        
+        $sql2 = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES (" . implode('`, `', $values2) . ")";
+        echo "  * SQL2: " . $sql2 . "<br><br>";
         
         if(!$this->query($sql, $fields)->error()) {
             return true;
