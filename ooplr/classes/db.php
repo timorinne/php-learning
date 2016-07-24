@@ -50,10 +50,9 @@ class DB {
                     $this->_error = true;
                 }
             }
-        } catch (Exception $ex) {
-            echo "Error[query(" . $sql . ")]" . $ex->getMessage() . "<br>";
-        
-   
+        } catch (Exception $e) {
+            #echo "Error[query(" . $sql . ")]" . $ex->getMessage() . "<br>";
+            die($e->getMessage());
         }
         return $this;
     }
