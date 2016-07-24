@@ -17,6 +17,7 @@ class DB {
         
             $this->_pdo = new PDO ('sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db', 'tri', 'OhNoo8yu');
             $this->_pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+            echo "Connected!<br><br>";
         } catch(PDOException $e) {
             die($e->getMessage());
         }
@@ -87,7 +88,8 @@ class DB {
         }
 
         $sql = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
-
+        echo "SQL: " . $sql . "<br><br>";
+        
         if(!$this->query($sql, $fields)->error()) {
             return true;
         }
