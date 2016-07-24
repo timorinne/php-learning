@@ -17,10 +17,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `db`
+-- Database: `php_ooplr`
 --
-CREATE DATABASE IF NOT EXISTS `ooplr` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `ooplr`;
+CREATE DATABASE IF NOT EXISTS `php_ooplr` DEFAULT CHARACTER SET = utf8 COLLATE = utf8_unicode_ci;
+USE `php_ooplr`;
+USE `php_ooplr`;
 
 -- --------------------------------------------------------
 
@@ -33,7 +34,8 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `name` varchar(20) NOT NULL,
   `permissions` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARACTER SET = utf8 COLLATE = utf8_unicode_ci AUTO_INCREMENT=3 ;
+
 
 --
 -- Dumping data for table `groups`
@@ -59,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `joined` datetime NOT NULL,
   `group` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARACTER SET = utf8 COLLATE = utf8_unicode_ci AUTO_INCREMENT=16 ;
 
 ALTER TABLE users MODIFY COLUMN email VARCHAR(255) NOT NULL DEFAULT '{}';
 -- --------------------------------------------------------
@@ -72,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `users_session` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `hash` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_unicode_ci;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
