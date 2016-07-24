@@ -92,9 +92,10 @@ class DB {
             $x++;
         }
 
-        $sql = "INSERT INTO {$table} (" . implode(', ', $keys) . ") VALUES ({$values})";
+        #$sql = "INSERT INTO {$table} (" . implode(', ', $keys) . ") VALUES ({$values})";
+        $sql = "INSERT INTO {$table} ([" . implode('[, ]', $keys) . "]) VALUES ({$values})";
         
-        $sql2 = "INSERT INTO {$table} (" . implode(', ', $keys) . ") VALUES ('" . implode('\', \'', $values2) . "')";
+        $sql2 = "INSERT INTO {$table} ([" . implode('[, ]', $keys) . "]) VALUES ('" . implode('\', \'', $values2) . "')";
         echo "  * SQL2: " . $sql2 . "<br><br>";
         
         if(!$this->query($sql, $fields)->error()) {
