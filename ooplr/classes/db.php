@@ -44,38 +44,39 @@ class DB {
                 }   
 
                 if($this->_query->execute()) {
-                    #$this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
-                    #$this->_count = $this->_query->rowCount();
+                    $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+                    $this->_count = $this->_query->rowCount();
                 } else {
                     $this->_error = true;
                 }
             }
         } catch (Exception $e) {
-            #echo "Error[query(" . $sql . ")]" . $ex->getMessage() . "<br>";
             die($e->getMessage());
         }
         return $this;
     }
 
     public function action($action, $table, $where = array()) {
-        if(count($where) === 3) {
-            $operators = array('=', '>', '<', '>=', '<=');
+        try {
+            if(count($where) === 3) {
+                $operators = array('=', '>', '<', '>=', '<=');
 
-            $field = $where[0];
-            $operator = $where[1];
-            $value = $where[2];
+                $field = $where[0];
+                $operator = $where[1];
+                $value = $where[2];
 
-            if(in_array($operator, $operators)) {
-                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
-                echo "  * SQL: " . $sql . "<br><br>";
+                if(in_array($operator, $operators)) {
+                    $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
+                    echo "  * SQL: " . $sql . "<br><br>";
 
-                if(!$this->query($sql, array($value))->error()) {
-                    return $this;
+                    if(!$this->query($sql, array($value))->error()) {
+                        return $this;
+                    }
                 }
             }
-
+        } catch (Exception $ex) {
+            die($e->getMessage());
         }
-
         return false;
     }
 
