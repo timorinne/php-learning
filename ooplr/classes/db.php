@@ -51,7 +51,7 @@ class DB {
                 }
             }
         } catch (Exception $ex) {
-            echo "Error[query(" . $sql . ")]" . $e->getMessage() . "<br>";
+            echo "Error[query(" . $sql . ")]" . $ex->getMessage() . "<br>";
         
    
         }
