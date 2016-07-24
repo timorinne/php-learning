@@ -33,10 +33,13 @@ if (Input::exists()) {
             ),
         ));
 
+        echo "register.validate.passed(): " . $validate->passed() . "<br>";       
         if ($validate->passed()) {
             $user = new User();
             $salt = Hash::salt(32);
 
+            echo "Now creating a user...<br>";
+            
             try {
                 $user->create(array(
                     'name' => Input::get('name'),
