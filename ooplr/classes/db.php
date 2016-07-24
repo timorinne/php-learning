@@ -102,11 +102,11 @@ class DB {
         $sql2 = "INSERT INTO {$table} ([" . implode('], [', $keys) . "]) VALUES ('" . implode('\', \'', $values2) . "')";
         echo "  * SQL2: " . $sql2 . "<br><br>";
         
-        # if(!$this->query($sql, $fields)->error()) {
-        if(!$this->query($sql2)->error()) {
+        #if(!$this->query($sql2)->error()) {
+        if(!$this->query($sql, $fields)->error()) {
             return true;
         }
-
+        echo "query->error(): " . $this->$query->error();
         return false;
     }
 
