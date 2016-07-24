@@ -31,7 +31,7 @@ class User {
     }
 
     public function create($fields = array()) {
-        if(!$this->_db->insert('users', $fields)) {
+        if(!$this->_db->insert('php_ooplr.users', $fields)) {
             throw new Exception('Sorry, there was a problem creating your account;');
         }
     }
@@ -42,7 +42,7 @@ class User {
             $id = $this->data()->id;
         }
 
-        if(!$this->_db->update('users', $id, $fields)) {
+        if(!$this->_db->update('php_ooplr.users', $id, $fields)) {
             throw new Exception('There was a problem updating');
         }
     }
@@ -50,7 +50,7 @@ class User {
     public function find($user = null) {
         if($user) {
             $field = (is_numeric($user)) ? 'id' : 'username';
-            $data = $this->_db->get('users', array($field, '=', $user));
+            $data = $this->_db->get('php_ooplr.users', array($field, '=', $user));
 
             if($data->count()) {
                 $this->_data = $data->first();
@@ -72,10 +72,10 @@ class User {
 
                     if ($remember) {
                         $hash = Hash::unique();
-                        $hashCheck = $this->_db->get('users_session', array('user_id', '=', $this->data()->id));
+                        $hashCheck = $this->_db->get('php_ooplr.users_session', array('user_id', '=', $this->data()->id));
 
                         if (!$hashCheck->count()) {
-                            $this->_db->insert('users_session', array(
+                            $this->_db->insert('php_ooplr.users_session', array(
                                 'user_id' => $this->data()->id,
                                 'hash' => $hash
                             ));
@@ -94,7 +94,7 @@ class User {
     }
 
     public function hasPermission($key) {
-        $group = $this->_db->get('groups', array('id', '=', $this->data()->group));
+        $group = $this->_db->get('php_ooplr.groups', array('id', '=', $this->data()->group));
 
         if($group->count()) {
             $permissions = json_decode($group->first()->permissions, true);
@@ -110,7 +110,7 @@ class User {
     }
 
     public function logout() {
-        $this->_db->delete('users_session', array('user_id', '=', $this->data()->id));
+        $this->_db->delete('php_ooplr.users_session', array('user_id', '=', $this->data()->id));
 
         Session::delete($this->_sessionName);
         Cookie::delete($this->_cookieName);

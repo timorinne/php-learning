@@ -61,7 +61,7 @@ class DB {
             $value = $where[2];
 
             if(in_array($operator, $operators)) {
-                $sql = "{$action} FROM php_ooplr.{$table} WHERE {$field} {$operator} ?";
+                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
 
                 if(!$this->query($sql, array($value))->error()) {
                     return $this;
@@ -86,7 +86,7 @@ class DB {
             $x++;
         }
 
-        $sql = "INSERT INTO php_ooplr.{$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
+        $sql = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
 
         if(!$this->query($sql, $fields)->error()) {
             return true;
@@ -107,7 +107,7 @@ class DB {
             $x++;
         }
 
-        $sql = "UPDATE php_ooplr.{$table} SET {$set} WHERE id = {$id}";
+        $sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
 
         if(!$this->query($sql, $fields)->error()) {
             return true;
