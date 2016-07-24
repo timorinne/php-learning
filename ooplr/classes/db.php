@@ -33,23 +33,28 @@ class DB {
     public function query($sql, $params = array()) {
         $this->_error = false;
 
-        if($this->_query = $this->_pdo->prepare($sql)) {
-            $x = 1;
-            if(count($params)) {
-                foreach($params as $param) {
-                    $this->_query->bindValue($x, $param);
-                    $x++;
+        try {
+            if($this->_query = $this->_pdo->prepare($sql)) {
+                $x = 1;
+                if(count($params)) {
+                    foreach($params as $param) {
+                        $this->_query->bindValue($x, $param);
+                        $x++;
+                    }
+                }   
+
+                if($this->_query->execute()) {
+                    $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+                    $this->_count = $this->_query->rowCount();
+                } else {
+                    $this->_error = true;
                 }
             }
-
-            if($this->_query->execute()) {
-                $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
-                $this->_count = $this->_query->rowCount();
-            } else {
-                $this->_error = true;
-            }
+        } catch (Exception $ex) {
+            echo "Error[query(" . $sql . ")]" . $e->getMessage() . "<br>";
+        
+   
         }
-
         return $this;
     }
 
