@@ -63,6 +63,7 @@ class DB {
 
             if(in_array($operator, $operators)) {
                 $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
+                echo "  * SQL: " . $sql . "<br><br>";
 
                 if(!$this->query($sql, array($value))->error()) {
                     return $this;
@@ -112,6 +113,7 @@ class DB {
         }
 
         $sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
+        echo "  * SQL: " . $sql . "<br><br>";
 
         if(!$this->query($sql, $fields)->error()) {
             return true;
