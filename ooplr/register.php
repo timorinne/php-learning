@@ -15,13 +15,13 @@ if (Input::exists()) {
                 'min' => 2,
                 'max' => 50
             ),
-            'username' => array(
-                'name' => 'Username',
-                'required' => true,
-                'min' => 2,
-                'max' => 20,
-                'unique' => 'users'
-            ),
+//            'username' => array(
+//                'name' => 'Username',
+//                'required' => true,
+//                'min' => 2,
+//                'max' => 20,
+//                'unique' => 'users'
+//            ),
             'password' => array(
                 'name' => 'Password',
                 'required' => true,
