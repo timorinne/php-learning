@@ -81,7 +81,7 @@ class DB {
         $keys = array_keys($fields);
         $values2 = array_values($fields);
         $values = null;
-        $values2 = null;
+
         $x = 1;
 
         foreach($fields as $field) {
