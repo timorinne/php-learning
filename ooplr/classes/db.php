@@ -75,6 +75,8 @@ class DB {
     }
 
     public function insert($table, $fields = array()) {
+        echo "db.insert()<br>";
+        
         $keys = array_keys($fields);
         $values = null;
         $x = 1;
@@ -88,7 +90,7 @@ class DB {
         }
 
         $sql = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
-        echo "SQL: " . $sql . "<br><br>";
+        echo "  * SQL: " . $sql . "<br><br>";
         
         if(!$this->query($sql, $fields)->error()) {
             return true;

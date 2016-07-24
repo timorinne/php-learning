@@ -31,6 +31,8 @@ class User {
     }
 
     public function create($fields = array()) {
+        echo "user.create()<br>";
+        
         if(!$this->_db->insert('php_ooplr.users', $fields)) {
             throw new Exception('Sorry, there was a problem creating your account;');
         }
