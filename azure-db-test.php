@@ -18,6 +18,8 @@ try {
     $dns = 'sqlsrv:server = tcp:tri-azure-sqlserver.database.windows.net,1433; Database = tri-php-study_db; LoginTimeout = 30; Encrypt = 1';
     $sql = "SELECT * FROM phptest.config;";
     
+    error_log("SQL: " . $sql, 0);
+    
     echo "<br>";
     echo "dns: " . $dns . "<br>";
     echo "sql: " . $sql . "<br>";
